@@ -1,7 +1,7 @@
 # Group 30 Project
 Job Platform for Blue-Collar and Informal Workers
 
-##Project Overview
+## Project Overview
 
 Blue-collar and informal workers such as farmers, drivers, and masons often struggle to find work because of the lack of an online presence and limited digital tools. This platform connects such workers with employers who are looking for competent workers to assist them with tasks and solves a vital problem in the provision of work and employment opportunities.
 
