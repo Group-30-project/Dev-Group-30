@@ -1,6 +1,6 @@
 # Dev Group 30 Project
 
-# JobConnect: Local Workers and Employers Integrated Within One Single Job Portal
+# Abyssinia Jobs: Local Workers and Employers Integrated Within One Single Job Portal
 
 ## Project Description
 
