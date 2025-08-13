@@ -6,8 +6,8 @@
 }
 
 body {
-    background: #FFFFFF; /* White for a clean body background */
-    color: #2C3E50; /* Dark navy for default text */
+    background: #FFFFFF; 
+    color: #2C3E50; 
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -18,8 +18,8 @@ header {
 }
 
 .nav-box {
-    background: #2C3E50; /* Dark navy for a professional header */
-    color: #FFFFFF; /* White text for contrast */
+    background: #2C3E50; 
+    color: #FFFFFF; 
     border-radius: 25px;
     padding: 1rem 2.5rem;
     margin: 1.5rem;
@@ -44,19 +44,19 @@ header {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    color: #FFFFFF; /* White for auth links */
+    color: #FFFFFF; 
     text-align: center;
     width: 50%;
     transition: background 0.3s ease;
 }
 
 .auth-link:first-child {
-    background: #7F8C8D; /* Grayish-blue for Signup button */
+    background: #7F8C8D; 
 }
 
 .auth-link:last-child {
-    background: #FFFFFF; /* White for Login button */
-    color: #2C3E50; /* Dark navy for contrast */
+    background: #FFFFFF; 
+    color: #2C3E50; 
 }
 
 .auth-link:hover {
@@ -64,13 +64,13 @@ header {
 }
 
 .welcome-text {
-    font-family: 'Roboto', sans-serif; /* Clean, bold sans-serif for normal style */
+    font-family: 'Roboto', sans-serif; 
     font-size: 2.5rem;
-    font-weight: 900; /* Extra bold for "fat letters" */
+    font-weight: 900; 
     text-align: center;
     margin-bottom: 1rem;
-    letter-spacing: 1px; /* Subtle spacing for beauty */
-    color: #FFFFFF; /* White for contrast on navy header */
+    letter-spacing: 1px; 
+    color: #FFFFFF; 
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -89,20 +89,20 @@ nav {
 
 .nav-items {
     display: flex;
-    gap: 3rem; /* Maintain distance between items */
+    gap: 3rem; 
 }
 
 .nav-item {
-    padding: 0.6rem 1.2rem; /* Keep padding for spacing */
+    padding: 0.6rem 1.2rem; 
     transition: transform 0.3s ease;
 }
 
 .nav-item:hover {
-    transform: scale(1.1); /* Subtle scale for attractiveness */
+    transform: scale(1.1);  
 }
 
 .nav-item a {
-    color: #FFFFFF; /* White for contrast on navy header */
+    color: #FFFFFF; 
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
@@ -110,8 +110,8 @@ nav {
 }
 
 .nav-item a:hover {
-    color: #7F8C8D; /* Grayish-blue for hover effect */
-    text-decoration: underline; /* Subtle underline for attractiveness */
+    color: #7F8C8D; 
+    text-decoration: underline; 
 }
 
 .hero {
@@ -120,7 +120,7 @@ nav {
     padding: 4rem 2rem;
     max-width: 1300px;
     margin: 0 auto;
-    background: #7F8C8D; /* Grayish-blue for a modern hero background */
+    background: #7F8C8D;
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -150,7 +150,7 @@ nav {
     font-family: 'Abyssinica SIL', serif;
     font-size: 2.8rem;
     font-weight: 900;
-    color: #FFFFFF; /* White for contrast on grayish-blue */
+    color: #FFFFFF; 
     text-align: center;
     margin-top: 1.5rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
@@ -165,14 +165,14 @@ nav {
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: #FFFFFF; /* White for readability on grayish-blue */
+    color: #FFFFFF; 
     margin-bottom: 1.2rem;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .hero p {
     font-size: 1.4rem;
-    color: #FFFFFF; /* White for paragraph text */
+    color: #FFFFFF; 
     margin-bottom: 2rem;
     max-width: 600px;
 }
@@ -180,8 +180,8 @@ nav {
 .cta-button {
     display: inline-block;
     padding: 1.2rem 2.5rem;
-    background: #2C3E50; /* Dark navy for bold CTA */
-    color: #FFFFFF; /* White for contrast */
+    background: #2C3E50; 
+    color: #FFFFFF; 
     text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
@@ -194,12 +194,12 @@ nav {
 .cta-button:hover {
     transform: scale(1.1);
     box-shadow: 0 7px 20px rgba(0, 0, 0, 0.6);
-    background: #7F8C8D; /* Grayish-blue on hover */
+    background: #7F8C8D; 
 }
 
 .about-project {
     padding: 3rem 2rem;
-    background: #FFFFFF; /* White for consistency */
+    background: #FFFFFF; 
     border-radius: 20px;
     margin: 2rem auto;
     max-width: 1000px;
@@ -209,7 +209,7 @@ nav {
 
 .about-project h2 {
     font-size: 2.5rem;
-    color: #2C3E50; /* Dark navy for section title */
+    color: #2C3E50; 
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -222,14 +222,14 @@ nav {
 
 .about-content p {
     font-size: 1.2rem;
-    color: #2C3E50; /* Dark navy for text */
+    color: #2C3E50; 
     margin-bottom: 2rem;
     line-height: 1.7;
 }
 
 .team {
     padding: 3rem 2rem;
-    background: #FFFFFF; /* White for consistency */
+    background: #FFFFFF; 
     border-radius: 20px;
     margin: 2rem auto;
     max-width: 1000px;
@@ -239,7 +239,7 @@ nav {
 
 .team h2 {
     font-size: 2.5rem;
-    color: #2C3E50; /* Dark navy for section title */
+    color: #2C3E50; 
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -254,8 +254,8 @@ nav {
 }
 
 .team-card {
-    background: #FFFFFF; /* White for team cards */
-    border: 1px solid #7F8C8D; /* Grayish-blue border */
+    background: #FFFFFF; 
+    border: 1px solid #7F8C8D; 
     padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -273,21 +273,21 @@ nav {
 .team-image {
     width: 100px;
     height: 100px;
-    border-radius: 50%; /* Circular profile photo */
+    border-radius: 50%; 
     margin-bottom: 1rem;
     object-fit: cover;
-    border: 2px solid #7F8C8D; /* Grayish-blue border for image */
+    border: 2px solid #7F8C8D; 
 }
 
 .team-card h3 {
     font-size: 1.2rem;
-    color: #2C3E50; /* Dark navy for names */
+    color: #2C3E50; 
     font-weight: 700;
 }
 
 .impressions {
     padding: 3rem 2rem;
-    background: #FFFFFF; /* White for consistency */
+    background: #FFFFFF; 
     border-radius: 20px;
     margin: 2rem auto;
     max-width: 1000px;
@@ -297,7 +297,7 @@ nav {
 
 .impressions h2 {
     font-size: 2.5rem;
-    color: #2C3E50; /* Dark navy for section title */
+    color: #2C3E50; 
     margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -310,7 +310,7 @@ nav {
 
 .impressions-content p {
     font-size: 1.1rem;
-    color: #2C3E50; /* Dark navy for text */
+    color: #2C3E50; 
     margin-bottom: 1.5rem;
     line-height: 1.7;
     font-style: italic;
@@ -318,7 +318,7 @@ nav {
 
 .job-listings {
     padding: 3rem 2rem;
-    background: #FFFFFF; /* White for clean content area */
+    background: #FFFFFF; 
     border-radius: 20px;
     margin: 2rem auto;
     max-width: 1400px;
@@ -327,7 +327,7 @@ nav {
 
 .job-listings h2 {
     font-size: 2.5rem;
-    color: #2C3E50; /* Dark navy for section title */
+    color: #2C3E50; 
     margin-bottom: 2rem;
     text-align: center;
     text-transform: uppercase;
@@ -343,9 +343,8 @@ nav {
 }
 
 .job-card {
-    background: #FFFFFF; /* White for job cards */
-    border: 1px solid #7F8C8D; /* Grayish-blue border for framing */
-    padding: 2rem;
+    background: #FFFFFF; 
+    border: 1px solid #7F8C8D; 
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -371,26 +370,26 @@ nav {
 
 .job-card h3 {
     font-size: 1.8rem;
-    color: #2C3E50; /* Dark navy for job titles */
+    color: #2C3E50; 
     margin-bottom: 0.8rem;
     text-align: center;
 }
 
 .job-card .company {
-    color: #7F8C8D; /* Grayish-blue for company names */
+    color: #7F8C8D; 
     font-weight: 500;
     margin-bottom: 0.8rem;
     text-align: center;
 }
 
 .job-card .location {
-    color: #7F8C8D; /* Grayish-blue for locations */
+    color: #7F8C8D; 
     margin-bottom: 0.8rem;
     text-align: center;
 }
 
 .job-card .description {
-    color: #2C3E50; /* Dark navy for descriptions */
+    color: #2C3E50; 
     margin-bottom: 1.5rem;
     line-height: 1.7;
     text-align: center;
@@ -400,8 +399,8 @@ nav {
 .apply-button {
     display: inline-block;
     padding: 0.9rem 1.8rem;
-    background: #2C3E50; /* Dark navy for apply buttons */
-    color: #FFFFFF; /* White for contrast */
+    background: #2C3E50; 
+    color: #FFFFFF; 
     text-decoration: none;
     border-radius: 20px;
     font-weight: 700;
@@ -411,15 +410,14 @@ nav {
 
 .apply-button:hover {
     transform: scale(1.05);
-    background: #7F8C8D; /* Grayish-blue on hover */
+    background: #7F8C8D; 
 }
 
 footer {
-    background: #2C3E50; /* Dark navy for footer */
+    background: #2C3E50; 
     padding: 2.5rem;
     text-align: center;
-    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
-    color: #FFFFFF; /* White for footer text */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);/* White for footer text */
 }
 
 .footer-content {
@@ -436,14 +434,14 @@ footer {
 }
 
 .footer-links a {
-    color: #FFFFFF; /* White for footer links */
+    color: #FFFFFF; 
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #7F8C8D; /* Grayish-blue for hover effect */
+    color: #7F8C8D; 
 }
 
 @media (max-width: 768px) {
