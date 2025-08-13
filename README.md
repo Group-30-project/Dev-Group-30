@@ -1,4 +1,5 @@
 # Dev Group 30 Project
+<<<<<<< HEAD
 
 # Abyssinia Jobs: Local Workers and Employers Integrated Within One Single Job Portal
 
@@ -36,3 +37,5 @@ JobConnect facilitates a two-way marketplace with:
 
 
 
+=======
+>>>>>>> 959fc3959a1bac35f1e71a6e3e541d7d3d7810b5
