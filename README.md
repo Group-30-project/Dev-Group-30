@@ -1,5 +1,5 @@
 # Abisniya Job Advertisement Portal
-Welcome to the hi how are you this is Abisniya Job Advertisement Portal: is a modern web app where users can post there job , find there jobs and manage job there jobs advertisements with AI powered chat assistance and live job info from Google.
+Welcome hi how are you this is Abisniya Job Advertisement Portal: is a modern web app where users can post there job , find there jobs and manage job there jobs advertisements with AI powered chat assistance and live job info from Google.
 -----------------------------------------------------------------------------------------------------------------------------------
 ## Features 
 - **User-friendly Dashboard**  
