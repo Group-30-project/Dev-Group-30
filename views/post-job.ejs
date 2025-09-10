@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post a Job</title>
+  <link rel="stylesheet" href="/css/postjob.css">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f8;
+      margin: 0;
+      padding: 0;
+    }
+    .post-job-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .error-message {
+      background: #ffe0e0;
+      color: #d8000c;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .success-message {
+      background: #e0ffe0;
+      color: #007a00;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .user-info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    form input, form textarea, form select, form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    form select {
+      background: #fff;
+    }
+    form button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover {
+      background: #0056b3;
+    }
+    .chat-links label {
+      font-weight: bold;
+      margin-top: 5px;
+      display: block;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-job-container">
+    <h1>Post a New Job</h1>
+    <% if (typeof message !== 'undefined' && message) { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+    <% if (userName && userEmail) { %>
+      <div class="user-info" aria-live="polite">
+        <img src="/images/default-user.png" alt="User Picture" />
+        <div>
+          <div>Posting as: <strong><%= userName %></strong></div>
+          <div>Email: <em><%= userEmail %></em></div>
+        </div>
+      </div>
+    <% } %>
+    <form method="POST" action="/post-job">
+      <input type="text" name="title" placeholder="Job Title" required />
+      <input type="text" name="company" placeholder="Company Name" required />
+      <input type="text" name="location" placeholder="Location" required />
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option value="Education">Education</option>
+        <option value="Business">Business</option>
+        <option value="Technology">Technology</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea name="description" rows="6" placeholder="Job Description" required></textarea>
+      <div class="chat-links">
+        <label for="telegram">Telegram (optional)</label>
+        <input type="text" name="telegram" id="telegram" placeholder="Telegram username or link" />
+        <label for="whatsapp">WhatsApp (optional)</label>
+        <input type="text" name="whatsapp" id="whatsapp" placeholder="WhatsApp number or link" />
+        <label for="other_chat">Other Chat Link (optional)</label>
+        <input type="text" name="other_chat" id="other_chat" placeholder="Other chat platform link" />
+      </div>
+      <button type="submit">Post Job</button>
+    </form>
+    <div class="back-link">
+      <a href="/dashboard">Back to Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

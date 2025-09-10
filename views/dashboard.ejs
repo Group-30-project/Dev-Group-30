@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abisniya Job Portal </title>
+      <link rel="stylesheet" href="/css/dashboardstyle.css">
+</head>
+<body>
+<nav class="navbar">
+  <div id="hamburgerBtn" aria-label="Toggle sidebar" role="button" tabindex="0" title="Toggle sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a href="#" class="logo" onclick="alert('This is the Abisniya Job Portal !')">
+    <img src="image/abisiniy.png" alt="Logo" />
+    <h1>Abisniya Job </h1>
+  </a>
+  <div class="nav-links">
+    <a href="/login">Home</a>
+    <a href="/about">About</a>
+    <a href="/service">Services</a>
+  </div>
+  <a href="/logout" class="logout">Logout</a>
+</nav>
+<div class="container">
+  <aside class="sidebar" id="sidebar">
+    <div class="welcome">Welcome,To Abisiniya jobs<h3><%= name %> 👋</h3></div>
+    <div class="btn-group">
+      <a href="/post-job">Post a Job</a>
+      <a href="/find-jobs">Find Jobs</a>
+      <a href="/my-posts">My Posts</a>
+    </div>
+  </aside>
+  <main class="content" id="mainContent">
+    <h2>This is Job Advertisement wellcome to Abisniya Job </h2>
+    <p>Hi Wellcome this is Abisiniya Job platform</p>
+        <a href="#" id="workNewsBtn">Show Work News</a>
+    <div id="content" class="content-section">
+      <p>Loading random job information...</p>
+    </div>
+  </main>
+  <aside class="ai-chat" id="aiChat">
+    <h3>Abisiniya helps you with your work, whether it's web development, job searching, construction, or any other field</h3>
+    <div id="chatMessages" class="chat-messages"></div>
+    <button id="clearChatBtn">Clear Chat</button>
+    <form id="chatForm" class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Ask me anything... about job" autocomplete="off" required />
+      <button type="submit">Send</button>
+    </form>
+  </aside>
+</div>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

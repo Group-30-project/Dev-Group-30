@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/abisiniy.png">
+  <title>Our Jobs Abisniya Jobs</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f0f4f8; color:#333; }
+    a { text-decoration:none; color: inherit; }
+    .navbar {
+      display:flex; justify-content:space-between; align-items:center;
+      background: #2C3E50; padding:10px 20px; position:sticky; top:0; z-index:100;}
+    .logo img { height:40px; cursor:pointer; }
+    .nav-links { display:flex; gap:20px; }
+    .nav-links li a { color:#fff; font-weight:500; padding:5px 10px; transition:all 0.3s ease; }
+    .nav-links li a:hover, .nav-links li a.active { background:#7F8C8D; border-radius:5px; }
+    .menu-toggle { display:none; flex-direction:column; cursor:pointer; gap:5px; }
+    .menu-toggle span { width:25px; height:3px; background:#fff; border-radius:2px; }
+    header { text-align:center; padding:60px 20px; background: linear-gradient(120deg, #7F8C8D, #90e0ef); }
+    header h1 { font-size:2.8rem; color:#0077b6; margin-bottom:10px; }
+    header p { font-size:1.1rem; color:#03045e; }
+    .jobs-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      max-width:1200px;
+      margin:40px auto;
+      justify-content:center;
+    }
+    .job-card {
+      background:#fff;
+      width:220px;
+      border-radius:12px;
+      padding:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      text-align:center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .job-card:hover { transform: translateY(-8px); box-shadow:0 15px 30px rgba(0,0,0,0.2); }
+    .job-card img { width:100%; height:140px; border-radius:10px; object-fit:cover; margin-bottom:10px; }
+    .job-card h3 { margin-bottom:5px; color:#0077b6; }
+    .job-card p { font-size:0.9rem; color:#555; }
+    footer { background:#0077b6; color:#fff; text-align:center; padding:20px; margin-top:40px; }
+    @media(max-width:768px){
+      .nav-links { position:absolute; right:0; top:60px; background:#0077b6; flex-direction:column; width:100%; display:none; }
+      .nav-links li { text-align:center; margin:15px 0; }
+      .menu-toggle { display:flex; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" onclick="window.location.href='/dashboard'">
+      <img src="/image/abisiniy.png" alt="abisiniya jobs Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="/login">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/service">Service</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <header>
+    <h1>Explore Career Sectors</h1>
+    <p>Discover job opportunities across different industries and find the right career for you.</p>
+  </header>
+  <main>
+    <div class="jobs-container">
+      <div class="job-card">
+        <img src="/image/Chemistry Related Images.jpg alt="Natural Science">
+        <h3>Natural Science</h3>
+        <p>20 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/42b7e3e204ad93f3e39e7bd37b0bfb1f.jpg" alt="Business">
+        <h3>Business</h3>
+        <p>244 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/0ce8220e835bca1207024bc194f13267.jpg" alt="Creative Arts">
+        <h3>Creative Arts</h3>
+        <p>6 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/5308ffac17f0f91a4601a0a9638a7d52.jpg" alt="Education">
+        <h3>Education</h3>
+        <p>118 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/hospitality.jpg" alt="Hospitality">
+        <h3>Hospitality</h3>
+        <p>10 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/low-medium-skilled.jpg" alt="Low & Medium Skilled Worker">
+        <h3>Low & Medium Skilled Worker</h3>
+        <p>52 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/transportation.jpg" alt="Transportation & Logistics">
+        <h3>Transportation & Logistics</h3>
+        <p>99 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/engineering.jpg" alt="Engineering">
+        <h3>Engineering</h3>
+        <p>128 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/finance.jpg" alt="Finance">
+        <h3>Finance</h3>
+        <p>128 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/legal.jpg" alt="Legal Services">
+        <h3>Legal Services</h3>
+        <p>11 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/ict.jpg" alt="ICT">
+        <h3>ICT</h3>
+        <p>36 Open positions</p>
+      </div>
+      <div class="job-card">
+        <img src="/image/healthcare.jpg" alt="Health Care">
+        <h3>Health Care</h3>
+        <p>40 Open positions</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Abisniya Jobs. All rights reserved.</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>

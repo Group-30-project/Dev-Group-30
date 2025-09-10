@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify Account</title>
+</head>
+<body>
+  <h1>Enter Verification Code</h1>
+  <% if (message) { %><p style="color:red"><%= message %></p><% } %>
+  <form action="/verify" method="POST">
+    <input type="text" name="code" placeholder="Verification Code" required />
+    <button type="submit">Verify</button>
+  </form>
+</body>
+</html>

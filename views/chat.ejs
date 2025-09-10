@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat with <%= receiverName %></title>
+  <style>
+    body { font-family: Arial; padding: 20px; max-width: 700px; margin: auto; }
+    .message { padding: 10px; margin: 5px 0; border-radius: 8px; max-width: 60%; }
+    .sent { background-color: #007bff; color: white; margin-left: auto; }
+    .received { background-color: #eee; color: #333; margin-right: auto; }
+    form { margin-top: 20px; display: flex; }
+    input[type="text"] { flex-grow: 1; padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; }
+    button { padding: 10px 20px; font-size: 16px; border: none; background: #007bff; color: white; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Chat with <%= receiverName %></h1>
+  <div class="messages">
+    <% messages.forEach(msg => { %>
+      <div class="message <%= msg.sender_id === userId ? 'sent' : 'received' %>">
+        <%= msg.content %>
+        <br />
+        <small><%= new Date(msg.timestamp).toLocaleString() %></small>
+      </div>
+    <% }) %>
+  </div>
+  <form action="/chat/<%= receiverId %>" method="POST">
+    <input type="text" name="message" placeholder="Type your message" autocomplete="off" required />
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

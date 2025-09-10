@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JobBoard — Find Your Next Opportunity</title>
+  <meta name="description" content="Beautiful, responsive job advertisement homepage built with pure HTML, CSS, and JavaScript." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020;
+      --surface: #0f172a;  
+      --card: #111827;     
+      --muted: #94a3b8;   
+      --text: #e5e7eb;    
+      --brand: #6366f1;  
+      --brand-2: #22d3ee; 
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --ring: 0 0 0 8px rgba(99,102,241,0.15);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius: 14px;
+      --shadow: 0 15px 40px rgba(0,0,0,0.35), 0 3px 10px rgba(0,0,0,0.25);
+      --shadow-soft: 0 10px 30px rgba(2,6,23,0.45);
+      --gradient: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,0.15), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(34,211,238,0.12), transparent 60%),
+                  linear-gradient(180deg, rgba(2,6,23,0.4), rgba(2,6,23,0.75));
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+      background-image: var(--gradient);
+      background-attachment: fixed;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1200px; margin:0 auto; padding:0 20px}
+
+    header{
+      position: sticky; top:0; z-index:50;
+      background: rgba(15,23,42,0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148,163,184,0.08);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:0.2px}
+    .logo{
+      width:38px; height:38px; display:grid; place-items:center; border-radius:12px;
+      background: conic-gradient(from 180deg at 50% 50%, #6366f1, #22d3ee, #6366f1);
+      box-shadow: inset 0 0 30px rgba(255,255,255,0.15), 0 6px 18px rgba(34,211,238,0.25);
+    }
+    nav ul{display:flex; gap:20px; list-style:none; padding:0; margin:0}
+    nav a{opacity:0.9}
+    nav a:hover{opacity:1}
+    .actions{display:flex; gap:10px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid rgba(99,102,241,0.35); background:rgba(99,102,241,0.08); font-weight:600}
+    .btn:hover{box-shadow: var(--shadow-soft)}
+    .btn.primary{background:linear-gradient(135deg,#6366f1,#22d3ee); border-color:transparent; color:#0b1020}
+    .btn.ghost{background:rgba(148,163,184,0.06); border-color:rgba(148,163,184,0.18)}
+
+    .hero{padding:64px 0 32px}
+    .hero-inner{
+      display:grid; grid-template-columns:1.05fr 0.95fr; gap:36px; align-items:center;
+    }
+    .headline{font-size: clamp(28px, 4vw, 46px); line-height:1.15; font-weight:800; margin:0}
+    .sub{color:var(--muted); font-size:clamp(14px,1.7vw,18px)}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.3); font-weight:600; margin-bottom:14px}
+
+    .search-card{
+      margin-top:22px; background:linear-gradient(180deg, rgba(17,24,39,0.95), rgba(17,24,39,0.8));
+      border:1px solid rgba(148,163,184,0.15); border-radius: var(--radius-xl); padding:18px; box-shadow: var(--shadow);
+    }
+    .search-form{display:grid; grid-template-columns:1.2fr 1fr 1fr auto; gap:12px}
+    .field{position:relative}
+    .field input, .field select{
+      width:100%; padding:14px 14px 14px 44px; border-radius:14px; border:1px solid rgba(148,163,184,0.22);
+      background: rgba(2,6,23,0.6); color:var(--text); outline:none;
+    }
+    .field input:focus, .field select:focus{box-shadow: var(--ring); border-color: rgba(99,102,241,0.65)}
+    .icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); opacity:0.7}
+
+    .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:18px}
+    .stat{background:rgba(99,102,241,0.06); border:1px solid rgba(99,102,241,0.18); border-radius:16px; padding:16px}
+    .stat h4{margin:0; font-size:22px}
+    .stat p{margin:4px 0 0; color:var(--muted); font-size:14px}
+
+    .hero-art{
+      position:relative; height:100%; min-height:380px; border-radius:var(--radius-xl);
+      background:radial-gradient(500px 300px at 70% 20%, rgba(34,211,238,0.2), rgba(99,102,241,0.12) 60%, transparent),
+                 linear-gradient(160deg, rgba(2,6,23,0.6), rgba(2,6,23,0.1));
+      border:1px solid rgba(148,163,184,0.15); overflow:hidden; box-shadow: var(--shadow);
+    }
+    .orb{position:absolute; border-radius:50%; filter:blur(4px); opacity:0.7}
+    .orb.one{width:160px;height:160px;background:#6366f1; top:40px; left:40px; animation:float 9s ease-in-out infinite}
+    .orb.two{width:220px;height:220px;background:#22d3ee; bottom:-40px; right:60px; animation:float 12s ease-in-out infinite reverse}
+    .hero-art .card{
+      position:absolute; right:20px; top:20px; width:280px; background:#0b1020; border:1px solid rgba(148,163,184,0.15);
+      border-radius:18px; padding:16px; box-shadow: var(--shadow-soft)
+    }
+    .hero-art .card h4{margin:0 0 6px}
+    .hero-art .card p{margin:0; color:var(--muted); font-size:14px}
+
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    .section{padding:40px 0}
+    .section-header{display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:16px}
+    .section h2{margin:0; font-size:28px}
+    .section p{margin:4px 0 0; color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
+    .job{
+      background:linear-gradient(180deg, rgba(17,24,39,0.95), rgba(17,24,39,0.8));
+      border:1px solid rgba(148,163,184,0.15); border-radius:18px; padding:16px; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .job:hover{transform:translateY(-4px); box-shadow: var(--shadow-soft)}
+    .job-head{display:flex; gap:12px; align-items:center}
+    .logo-sm{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-weight:800; letter-spacing:0.5px}
+    .pill{padding:4px 10px; border-radius:999px; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); font-size:12px}
+    .meta{display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:13px}
+    .job .actions{margin-top:12px}
+    .taglist{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid rgba(148,163,184,0.2); background:rgba(148,163,184,0.06)}
+    .cats{display:grid; grid-template-columns: repeat(6,1fr); gap:12px}
+    .cat{background:rgba(148,163,184,0.06); border:1px solid rgba(148,163,184,0.18); border-radius:14px; padding:14px; display:flex; align-items:center; gap:10px}
+    .cat b{font-size:14px}
+    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .step{background:rgba(2,6,23,0.5); border:1px solid rgba(148,163,184,0.16); padding:16px; border-radius:16px}
+    .step h4{margin:0 0 6px}
+    .step p{margin:0; color:var(--muted)}
+    .cta{display:flex; align-items:center; justify-content:space-between; background:linear-gradient(90deg, rgba(99,102,241,0.25), rgba(34,211,238,0.25)); padding:20px; border:1px solid rgba(148,163,184,0.15); border-radius:20px}
+    footer{margin-top:40px; padding:24px 0; border-top:1px solid rgba(148,163,184,0.12); color:var(--muted)}
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.6); backdrop-filter: blur(4px)}
+    .modal.open{display:flex}
+    .modal-card{width:min(720px, 92vw); background:#0b1020; border:1px solid rgba(148,163,184,0.18); border-radius:20px; padding:18px; box-shadow: var(--shadow)}
+    @media (max-width: 1024px){
+      .hero-inner{grid-template-columns:1fr}
+      .search-form{grid-template-columns:1fr 1fr 1fr;}
+      .stats{grid-template-columns: repeat(2,1fr)}
+      .grid{grid-template-columns: repeat(2,1fr)}
+      .cats{grid-template-columns: repeat(3,1fr)}
+    }
+    @media (max-width: 640px){
+      .search-form{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .cats{grid-template-columns: repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+      .cta{flex-direction:column; gap:10px; text-align:center}
+      .actions{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <span>JobBoard</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#jobs">Jobs</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#how">How it Works</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button class="btn ghost" id="toggleTheme" aria-pressed="false" title="Toggle theme">Dark</button>
+        <a class="btn primary" href="#" id="postJobBtn">Post a Job</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="badge">✨ Over <span id="statJobs" style="margin-left:6px; font-variant-numeric: tabular-nums;">2,300</span> live jobs</div>
+          <h1 class="headline">Find a job you love. <span style="background:linear-gradient(135deg,#6366f1,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent">Hire great talent.</span></h1>
+          <p class="sub">A modern job marketplace that connects ambitious people with top companies. Search roles, filter by location, and apply in minutes.</p>
+
+          <div class="search-card" role="search">
+            <form class="search-form" id="searchForm">
+              <label class="field">
+                <span class="icon" aria-hidden="true">🔎</span>
+                <input type="text" id="q" placeholder="Job title, keyword…" aria-label="Keyword" />
+              </label>
+              <label class="field">
+                <span class="icon" aria-hidden="true">📍</span>
+                <input type="text" id="loc" placeholder="Location (e.g. Addis Ababa)" aria-label="Location" />
+              </label>
+              <label class="field">
+                <span class="icon" aria-hidden="true">🗂️</span>
+                <select id="cat" aria-label="Category">
+                  <option value="">All Categories</option>
+                  <option>Engineering</option>
+                  <option>Design</option>
+                  <option>Marketing</option>
+                  <option>Sales</option>
+                  <option>Finance</option>
+                  <option>Operations</option>
+                  <option>Human Resources</option>
+                </select>
+              </label>
+              <button class="btn primary" type="submit" aria-label="Search jobs">Search</button>
+            </form>
+            <div class="stats" aria-hidden="true">
+              <div class="stat"><h4 id="statCompanies">540+</h4><p>Companies</p></div>
+              <div class="stat"><h4 id="statApplicants">120k</h4><p>Applicants</p></div>
+              <div class="stat"><h4 id="statRemote">68%</h4><p>Remote-friendly</p></div>
+              <div class="stat"><h4 id="statTime">3 mins</h4><p>Avg apply time</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="orb one"></span>
+          <span class="orb two"></span>
+          <div class="card">
+            <h4>Trending Skills</h4>
+            <p>React • Node.js • Data Analysis • UI/UX • Cloud • Flutter • Django • SQL</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jobs">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Featured Jobs</h2>
+            <p>Fresh opportunities from verified employers.</p>
+          </div>
+          <a href="#" class="btn ghost" id="viewAll">View all jobs →</a>
+        </div>
+        <div class="grid" id="jobGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Top Categories</h2>
+            <p>Explore roles by specialization.</p>
+          </div>
+        </div>
+        <div class="cats">
+          <div class="cat"><span>💻</span><b>Engineering</b></div>
+          <div class="cat"><span>🎨</span><b>Design</b></div>
+          <div class="cat"><span>📈</span><b>Marketing</b></div>
+          <div class="cat"><span>💼</span><b>Sales</b></div>
+          <div class="cat"><span>🧮</span><b>Finance</b></div>
+          <div class="cat"><span>⚙️</span><b>Operations</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>How it Works</h2>
+            <p>Simple steps to your next role.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h4>1. Create your profile</h4>
+            <p>Add your skills, experience, and preferences.</p>
+          </div>
+          <div class="step">
+            <h4>2. Search & filter</h4>
+            <p>Use keywords, location and category to narrow results.</p>
+          </div>
+          <div class="step">
+            <h4>3. Apply in minutes</h4>
+            <p>Quick applications with saved CV and cover letters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="newsletter">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h3 style="margin:0 0 6px">Get curated jobs in your inbox</h3>
+            <p style="margin:0; color:var(--bg); opacity:0.85">Weekly digest of top roles. No spam.</p>
+          </div>
+          <form id="newsForm" style="display:flex; gap:10px">
+            <input type="email" id="newsEmail" placeholder="you@example.com" aria-label="Email" required style="padding:12px 14px; border-radius:12px; border:1px solid rgba(2,6,23,0.25)">
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <div>© <span id="year"></span> JobBoard. All rights reserved.</div>
+      <div>Made with ❤️ — <a href="#">Post a job</a></div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="jobModal" role="dialog" aria-modal="true" aria-labelledby="jobTitleModal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px">
+        <h3 id="jobTitleModal" style="margin:0">Job title</h3>
+        <button class="btn ghost" id="closeModal" aria-label="Close">Close</button>
+      </div>
+      <p id="jobCompanyModal" style="color:var(--muted); margin:6px 0 12px">Company · Location · Type</p>
+      <div id="jobDescModal" style="white-space:pre-line"></div>
+      <div class="actions" style="margin-top:14px">
+        <a class="btn primary" href="#">Apply Now</a>
+        <a class="btn ghost" href="#">Save</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Demo data ---
+    const jobs = [
+      { id:1, title:"Frontend Engineer", company:"Nova Labs", location:"Addis Ababa", type:"Full-time", category:"Engineering", salary:"40k–60k ETB", tags:["React","TypeScript","CSS"], color:"#22d3ee", desc:`We are looking for a frontend engineer to build delightful user experiences.\n\nWhat you'll do:\n• Build accessible, responsive UI\n• Collaborate with designers & backend engineers\n• Ship fast, iterate faster` },
+      { id:2, title:"UI/UX Designer", company:"Luma Studio", location:"Remote", type:"Contract", category:"Design", salary:"Negotiable", tags:["Figma","Prototyping","UX"], color:"#6366f1", desc:`Craft intuitive interfaces for web & mobile. Portfolio required.` },
+      { id:3, title:"Marketing Analyst", company:"Axiom", location:"Bahir Dar", type:"Full-time", category:"Marketing", salary:"25k–40k ETB", tags:["Analytics","SQL","Google Ads"], color:"#10b981", desc:`Turn data into insights and growth experiments.` },
+      { id:4, title:"Backend Developer", company:"CloudSprint", location:"Remote (Ethiopia)", type:"Full-time", category:"Engineering", salary:"50k–80k ETB", tags:["Node.js","Express","MySQL"], color:"#f59e0b", desc:`Design APIs, optimize queries, and build scalable services.` },
+      { id:5, title:"Sales Executive", company:"Orbit Tech", location:"Adama", type:"Part-time", category:"Sales", salary:"Commission + Base", tags:["B2B","CRM","Negotiation"], color:"#ef4444", desc:`Drive pipeline and close deals with SMB clients.` },
+      { id:6, title:"Finance Officer", company:"BlueBank", location:"Mekelle", type:"Full-time", category:"Finance", salary:"30k–45k ETB", tags:["Accounting","Excel","Reporting"], color:"#6366f1", desc:`Manage budgets, forecasts, and monthly reporting.` },
+      { id:7, title:"Operations Manager", company:"SwiftLog", location:"Dire Dawa", type:"Full-time", category:"Operations", salary:"45k–70k ETB", tags:["Logistics","Leadership","Process"], color:"#22d3ee", desc:`Own daily ops and streamline processes across teams.` },
+      { id:8, title:"HR Generalist", company:"PeopleFirst", location:"Hawassa", type:"Full-time", category:"Human Resources", salary:"35k–50k ETB", tags:["Recruiting","Payroll","Policy"], color:"#10b981", desc:`Recruit, onboard, and build a great culture.` },
+      { id:9, title:"Full‑Stack Developer", company:"Monexa", location:"Remote", type:"Full-time", category:"Engineering", salary:"Negotiable", tags:["Django","Flutter","Cloud"], color:"#22d3ee", desc:`Join our growing fintech team and build end‑to‑end features.` }
+    ];
+    const $$ = (sel,root=document)=>Array.from(root.querySelectorAll(sel));
+    const $ = (sel,root=document)=>root.querySelector(sel);
+    function logoLetters(name){
+      return name.split(" ").slice(0,2).map(w=>w[0]).join("").toUpperCase();
+    }
+    function jobCard(j){
+      const el = document.createElement('article');
+      el.className = 'job';
+      el.setAttribute('tabindex','0');
+      el.innerHTML = `
+        <div class="job-head">
+          <div class="logo-sm" style="background:${j.color}1a; border:1px solid ${j.color}66; color:${j.color}">${logoLetters(j.company)}</div>
+          <div>
+            <h3 style="margin:0 0 4px; font-size:18px">${j.title}</h3>
+            <div class="meta">${j.company} · ${j.location} · <span class="pill">${j.type}</span></div>
+          </div>
+        </div>
+        <div class="taglist">${j.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px">
+          <div style="color:var(--muted); font-size:14px">💰 ${j.salary}</div>
+          <div class="actions">
+            <button class="btn ghost" data-id="${j.id}" aria-label="Preview job">Preview</button>
+            <a class="btn primary" href="#" aria-label="Apply to ${j.title}">Apply</a>
+          </div>
+        </div>`;
+      return el;
+    }
+    function renderJobs(list){
+      const grid = $('#jobGrid');
+      grid.innerHTML = '';
+      list.slice(0,6).forEach(j=> grid.appendChild(jobCard(j)));
+    }
+    function filterJobs({q='', loc='', cat=''}){
+      const term = q.trim().toLowerCase();
+      const location = loc.trim().toLowerCase();
+      const category = cat.trim();
+      return jobs.filter(j=>{
+        const matchesTerm = !term || [j.title,j.company,...j.tags].join(' ').toLowerCase().includes(term);
+        const matchesLoc = !location || j.location.toLowerCase().includes(location);
+        const matchesCat = !category || j.category === category;
+        return matchesTerm && matchesLoc && matchesCat;
+      });
+    }
+
+
+    function attachEvents(){
+
+      $('#searchForm').addEventListener('submit', e=>{
+        e.preventDefault();
+        const list = filterJobs({ q: $('#q').value, loc: $('#loc').value, cat: $('#cat').value });
+        renderJobs(list);
+      });
+
+
+      $('#jobGrid').addEventListener('click', e=>{
+        const b = e.target.closest('button[data-id]');
+        if(!b) return;
+        const job = jobs.find(j=> j.id === Number(b.dataset.id));
+        if(!job) return;
+        $('#jobTitleModal').textContent = job.title;
+        $('#jobCompanyModal').textContent = `${job.company} · ${job.location} · ${job.type}`;
+        $('#jobDescModal').textContent = job.desc;
+        $('#jobModal').classList.add('open');
+      });
+      $('#closeModal').addEventListener('click', ()=> $('#jobModal').classList.remove('open'));
+      $('#jobModal').addEventListener('click', (e)=>{ if(e.target.id==='jobModal') $('#jobModal').classList.remove('open'); });
+
+
+      const themeBtn = $('#toggleTheme');
+      function applyTheme(mode){
+        document.documentElement.dataset.theme = mode;
+        const dark = mode !== 'light';
+        themeBtn.textContent = dark ? 'Dark' : 'Light';
+        themeBtn.setAttribute('aria-pressed', String(dark));
+      }
+      const saved = localStorage.getItem('theme');
+      if(saved) applyTheme(saved);
+      themeBtn.addEventListener('click', ()=>{
+        const cur = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', cur);
+        applyTheme(cur);
+      });
+
+ 
+      $('#viewAll').addEventListener('click', (e)=>{
+        e.preventDefault();
+        renderJobs(jobs);
+      });
+
+
+      const jobsEl = $('#statJobs');
+      let n = 2300; const target = 2475; const i = setInterval(()=>{ n+=5; jobsEl.textContent=n.toLocaleString(); if(n>=target) clearInterval(i); }, 30);
+
+
+      $('#year').textContent = new Date().getFullYear();
+    }
+
+
+    renderJobs(jobs);
+    attachEvents();
+  </script>
+</body>
+</html>

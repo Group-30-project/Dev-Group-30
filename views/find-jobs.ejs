@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Find Jobs</title>
+<link rel="stylesheet" href="/css/findjob.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/image/abisiniy.png">
+</head>
+<body>
+  <nav class="navbar" role="banner">
+    <div class="logo" onclick="window.location.href='/dashboard'" tabindex="0" role="link" aria-label="Go to dashboard">
+      <img src="/image/abisiniy.png" alt="Logo" />
+      <span>Abisniya Jobs</span>
+    </div>
+    <div class="links">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/post-job">Post Job</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  <div class="container">
+    <aside class="sidebar" role="complementary" aria-label="Sidebar navigation">
+      <div class="welcome">Welcome, </div>
+      <nav>
+        <a href="/post-job">Post a Job</a>
+        <a href="/find-jobs" class="active">Find Jobs</a>
+        <a href="/my-posts">My Posts</a>
+      </nav>
+    </aside>
+    <main class="content-area" role="main" tabindex="-1">
+      <h1>Available Jobs</h1>
+      <form class="search-form" method="GET" action="/find-jobs" role="search" aria-label="Search jobs">
+        <input type="text" name="q"placeholder="Search jobs by title, company, or location..."value="<%= typeof query !== 'undefined' ? query : '' %>"autocomplete="off"aria-describedby="searchHint"/>
+        <button type="submit">Search</button>
+      </form>
+      <div id="searchHint" style="display:none;">Type keywords and press Search to filter jobs.</div>
+      <% if (!jobs || jobs.length === 0) { %>
+        <p>No jobs found.</p>
+      <% } else { %>
+        <div class="jobs-grid" role="list">
+          <% jobs.forEach(job => { %>
+  <article class="job-card" role="listitem">
+    <h3><%= job.title %></h3>
+    <p><strong>Company:</strong> <%= job.company %></p>
+    <p><strong>Location:</strong> 
+      <%= job.location %>
+    </p>
+   <% if (job.telegram) { %>
+  <div>Telegram: <a href="<%- job.telegram %>" target="_blank"><%- job.telegram %></a></div>
+<% } %>
+<% if (job.whatsapp) { %>
+  <div>WhatsApp: <a href="<%- job.whatsapp %>" target="_blank"><%- job.whatsapp %></a></div>
+<% } %>
+<% if (job.other_chat) { %>
+  <div>Other Chat: <a href="<%- job.other_chat %>" target="_blank"><%- job.other_chat %></a></div>
+<% } %>
+       <div class="rating">
+                <% for (let i = 1; i <= 5; i++) { %>
+                  <form method="POST" action="/rate-job">
+                    <input type="hidden" name="job_id" value="<%= job.id %>">
+                    <input type="hidden" name="rating" value="<%= i %>">
+                    <button type="submit">
+                      <% if (i <= Math.round(job.avg_rating)) { %>⭐<% } else { %>☆<% } %>
+                    </button>
+                  </form>
+                <% } %>
+                <span>(<%= job.rating_count %> reviews)</span>
+              </div>
+    <p>
+      <%= job.description.length > 150 ? job.description.substring(0, 150) + '...' : job.description %>
+    </p>
+    <p class="poster">Posted by: <%= job.poster_name %></p>
+    <a class="chat-link" href="/chat">Chat with Poster</a>
+  </article>
+<% }) %>
+        </div>
+      <% } %>
+    </main>
+  </div>
+</body>
+</html>
