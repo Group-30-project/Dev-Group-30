@@ -17,8 +17,8 @@ Welcome to the **Abisniya Job Advertisement Portal** — a modern web app where 
 - ### Mobile Friendly 
   Responsive hamburger menu with sidebar toggling for smaller screens.
 ---
-### Installation
+### yh le installation new metewm tchalalachu gn asfelagi kehun srut lalaw chgr yelewm 
 1. **Clone this repository**  
-   ```bash
+   ```bash wym cmd lay powershell laym ychalal
    git clone https://github.com/yourusername/abisniya-job-portal.git
    cd abisniya-job-portal
