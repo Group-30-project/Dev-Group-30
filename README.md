@@ -1,21 +1,21 @@
 # Abisniya Job Advertisement Portal
-Welcome to the **Abisniya Job Advertisement Portal** — a modern web app where users can post, find, and manage job advertisements with AI-powered chat assistance and live job info from Google.
----
-## Features
+Welcome to the hi how are you this is Abisniya Job Advertisement Portal: is a modern web app where users can post there job , find there jobs and manage job there jobs advertisements with AI powered chat assistance and live job info from Google.
+-----------------------------------------------------------------------------------------------------------------------------------
+## Features 
 - **User-friendly Dashboard**  
   Post jobs, find jobs, and manage your own job posts easily from the dashboard.
 - **Responsive Layout**  
-  A clean and responsive design featuring a sidebar navigation, main content area, and a right-hand AI chat sidebar.
+  is A clean and responsive style featuring a sidebar navigation and main content on the area and a right hand AI chat sidebar that they can ask anything about job .
 - **AI Chat Assistant**  
-  Chat with an AI assistant powered by OpenAI’s GPT model. Ask questions, get job info, or general help instantly.
+  Chat with an AI assistant powered by OpenAI’s GPT model. that can Ask questions get job info or general help instantly.
 - **Google Job Info Integration**  
-  Fetch and display random or searched job advertisements from Google Custom Search API dynamically.
+ this thing is Fetching and display random or searched job advertisements from Google Custom Search API dynamically.
 - **Work News Section**  
-  AI-generated latest news about work and jobs around the world, shown as a clear note inside the dashboard.
+  the AI generated latest news about work and jobs around the world it shown as a clear note inside on the dashboard.
 - **Sidebar Navigation**  
-  Easy navigation with sidebar links for posting jobs, finding jobs, and viewing your posts, plus a “Work News” button.
+  Easly navigation with sidebar links for a posting jobs finding jobs and viewing your posts plus on a Work News button.
 - ### Mobile Friendly 
-  Responsive hamburger menu with sidebar toggling for smaller screens.
+  Responsive hamburger menu with sidebar toggling for smaller screens so it is Mobile Friendly so this make it more perfect and smart.
 ---
 ### yh le installation new metewm tchalalachu gn asfelagi kehun srut lalaw chgr yelewm 
 1. **Clone this repository**  
