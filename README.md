@@ -20,5 +20,5 @@ Welcome hi how are you this is Abyssinia Job Advertisement Portal: Abyssinia Job
 ### yh le installation new metewm tchalalachu gn asfelagi kehun srut lelaw chgr yelewm 
 1. **Clone this repository**  
    ```bash wym cmd lay powershell laym ychalal
-   git clone https://github.com/yourusername/abisniya-job-portal.git
+   git clone https://github.com/Group-30-project/Dev-Group-30.git/abisniya-job-portal.git
    cd abisniya-job-portal
