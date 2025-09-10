@@ -16,8 +16,8 @@ Welcome hi how are you this is Abyssinia Job Advertisement Portal: is a modern w
   Easly navigation with sidebar links for a posting jobs finding jobs and viewing your posts plus on a Work News button.
 - ### Mobile Friendly 
   Responsive hamburger menu with sidebar toggling for smaller screens so it is Mobile Friendly so this make it more perfect and smart.
----
-### yh le installation new metewm tchalalachu gn asfelagi kehun srut lalaw chgr yelewm 
+----------------------------------------------------------------------------------------------------------------------------------
+### yh le installation new metewm tchalalachu gn asfelagi kehun srut lelaw chgr yelewm 
 1. **Clone this repository**  
    ```bash wym cmd lay powershell laym ychalal
    git clone https://github.com/yourusername/abisniya-job-portal.git
